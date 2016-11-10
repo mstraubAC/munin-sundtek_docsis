@@ -95,10 +95,10 @@ sum=0
 for freq in $freqs
 do
 	# Tune to frequency
-	${MEDIACLIENT} -m DVBC -f $freq -S 6952000 -M Q256 -d /dev/dvb/adapter1/frontend0 1> /dev/null
+	sudo ${DVBTUNE} -f $freq -s 6952 -qam 256 &> /dev/null
 	# Get bandwidth usage
-	bandwidth=`timeout 3 dvbsnoop -adapter 1 -s bandwidth 8190 -n 5000 -hideproginfo | awk -F: 'END { print $NF }' | sed 's/^[ t]*//' | awk '{print $1}'`
+	bandwidth=`timeout 3 sudo ${DVBSNOOP} -adapter 0 -s bandwidth 8190 -n 5000 -hideproginfo | awk -F: 'END { print $NF }' | sed 's/^[ t]*//' | awk '{print $1 * 1000}'`
 	echo $freq.value $bandwidth
-	sum=`echo "scale=3; $sum + $bandwidth" | bc`
+	sum=$( expr $sum + $bandwidth )
 done
 echo sum.value $sum
