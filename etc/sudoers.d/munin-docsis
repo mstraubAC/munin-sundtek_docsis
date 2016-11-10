@@ -1,0 +1,1 @@
+ALL ALL = (root) NOPASSWD: /usr/bin/dvbsnoop, /usr/bin/dvb-fe-tool, /usr/bin/dvbtune, /usr/local/bin/disableDVBSleep.sh
