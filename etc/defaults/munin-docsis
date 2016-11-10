@@ -1,0 +1,43 @@
+# Configuration for the munin docsis plugin
+
+# Define command paths
+DATAFILE=/var/tmp/munin-docsis-data
+DVBTUNE=/usr/bin/dvbtune
+DVBSNOOP=/usr/bin/dvbsnoop
+CITY="Aachen"
+MAXPERCHAN=55000 # kBit/s
+NCHANS=21
+TOTALMAXRATE=$( expr $MAXPERCHAN \* ${NCHANS} \* 1000)
+TOTAL_WARN=$(expr ${TOTALMAXRATE} \* 8 / 10)
+TOTAL_CRIT=$(expr ${TOTALMAXRATE} \* 9 / 10)
+
+CHAN_WARN=$(expr ${MAXPERCHAN} \* 1000 \* 8 / 10)
+CHAN_CRIT=$(expr ${MAXPERCHAN} \* 1000 \* 9 / 10)
+
+# Unitymedia Internet Downstream Belegung
+# Quelle: http://www.unitymedia-kabelbw-helpdesk.de/tv/nrw_he-digital-tv.html
+# 578,586,602 MHz Quelle: Intern UM.
+# Weitere Quelle: http://www.unitymediakabelbwforum.de/viewtopic.php?f=80&t=18777&start=10#p205712
+freqs="530000000 538000000 554000000 562000000 570000000 578000000 586000000 594000000 602000000 618000000 626000000 634000000 642000000 650000000 658000000 666000000 674000000 682000000 690000000 698000000 706000000"
+declare -A freqColor
+freqColor[530000000]=4839FE
+freqColor[538000000]=483CFE
+freqColor[554000000]=484FFE
+freqColor[562000000]=4852FE
+freqColor[570000000]=4855FE
+freqColor[578000000]=4858FE
+freqColor[586000000]=485BFE
+freqColor[594000000]=485EFF
+freqColor[602000000]=4861FE
+freqColor[618000000]=4864FE
+freqColor[626000000]=4867FE
+freqColor[634000000]=486AFE
+freqColor[642000000]=486DFE
+freqColor[650000000]=4870FE
+freqColor[658000000]=4873FE
+freqColor[666000000]=4876FE
+freqColor[674000000]=4879FE
+freqColor[682000000]=487CFE
+freqColor[690000000]=487FFE
+freqColor[698000000]=4882FE
+freqColor[706000000]=4885FE
