@@ -2,6 +2,7 @@
 
 # Define command paths
 DATAFILE=/var/tmp/munin-docsis-data
+LOCKFILE=/var/tmp/munin-docsis-data.lock
 DVBTUNE=/usr/bin/dvbtune
 DVBSNOOP=/usr/bin/dvbsnoop
 CITY="Aachen"
