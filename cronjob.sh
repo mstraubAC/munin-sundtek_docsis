@@ -32,6 +32,7 @@ if [ ! -f $LOCKFILE ]; then
 	echo sum.value $sum >> $TMPFILE
 	
 	mv $TMPFILE $DATAFILE 
+	chmod 644 ${DATAFILE}
 
 	rm $LOCKFILE
 fi
