@@ -43,6 +43,11 @@ echoerr() { echo "$@" 1>&2; }
 
 # configure stick
 
+# disable sleep mode
+sudo /usr/local/bin/disableDVBSleep.sh
+
+# set stick to DVB-C mode
+sudo /usr/bin/dvb-fe-tool -d DVBC/ANNEX_A &> /dev/null
 
 case $1 in
    config)
