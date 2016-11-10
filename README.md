@@ -1,6 +1,11 @@
-munin-sundtek_docsis
-====================
+munin-docsis
+============
 
-A munin plugin to graph DOCSIS segment usage using sundtek USB DVB-C Sticks.
+A munin plugin to graph the utilization of the own DOCSIS segment.
 
-There is a detailed Article explaining total usage measuring Unitymedia DOCSIS segment in german [here](http://falkhusemann.de/blog/2013/03/unitymedia-docsis-segmentauslastung-mit-munin-und-dvb-c-usb-stick-messen/).
+On the hardware side a DVB-C card or USB stick which is supported
+by the used Linux kernel is required.
+
+This is based on the Munin plugin previously published by Falk Husemann
+but expands its support to non Sundteck DVB-C interfaces.
+
