@@ -3,7 +3,7 @@
 # This reduces the munin runtime.
 
 # source the configuration
-source /etc/defaults/munin-docsis
+source /etc/default/munin-docsis
 
 echoerr() { echo "$@" 1>&2; }
 
