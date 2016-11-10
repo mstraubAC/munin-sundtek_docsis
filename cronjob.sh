@@ -25,7 +25,7 @@ if [ ! -f $LOCKFILE ]; then
 		# Tune to frequency
 		${DVBTUNE} -f $freq -s 6952 -qam 256 &> /dev/null
 		# Get bandwidth usage
-		bandwidth=`timeout 3 sudo ${DVBSNOOP} -adapter 0 -s bandwidth 8190 -n 5000 -hideproginfo | awk -F: 'END { print $NF }' | sed 's/^[ t]*//' | awk '{print $1 * 1000}'`
+		bandwidth=`timeout 3 sudo ${DVBSNOOP} -adapter 0 -s bandwidth 8190 -n 5000 -hideproginfo | awk -F: 'END { print $NF }' | sed 's/^[ t]*//' | awk '{printf "%i", $1 * 1000}'`
 		echo $freq.value $bandwidth >> $TMPFILE
 		sum=$( expr $sum + $bandwidth )
 	done
